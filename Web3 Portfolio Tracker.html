@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Moralis</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
+  </head>
+  <body>
+  <img src="Logo.png">
+  <h1>Shivgun's Portfolio Tracker</h1>
+  <h2>Moralis Login</h2>
+
+   <button onclick="login()" id="login">Login</button>
+
+    <script>
+        const serverUrl = "https://yy1ir3ohgjj2.usemoralis.com:2053/server";
+        const appId = "X0Q9PlCHbus9DHEBK5IJ6bG4PKhHZ8Qrn25Ld5Ku";
+        Moralis.start({ serverUrl, appId});
+
+        async function login() {
+            const user = await Moralis.authenticate()
+            document.getElementById('login').innerHTML = user.get('ethAddress')
+        }
+    </script>
+  </body>
+
+
+  </html>
